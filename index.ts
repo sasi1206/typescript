@@ -27,6 +27,8 @@ type newMappedType = {
 //   return newUser;
 // });
 
+let sasi;
+
 const users: newType[] = [
   { firstname: "John", lastname: "Doe", age: 17 },
   { firstname: "Jane", lastname: "Smith", age: 25 },
@@ -42,3 +44,9 @@ const mappedUsers: newMappedType[] = users.map((user) => {
     userType,
   };
 });
+
+function getUserType(user: newMappedType): userType {
+  return user.userType;
+}
+
+const firstUserType = getUserType(mappedUsers[0]);
