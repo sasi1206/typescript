@@ -50,3 +50,11 @@ function getUserType(user: newMappedType): userType {
 }
 
 const firstUserType = getUserType(mappedUsers[0]);
+
+const processUserDetails = (user: object): void => {
+  // processing user data and not returning anything
+};
+
+const handleError = (error: string): never => {
+  throw new Error(error);
+};
