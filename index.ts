@@ -2,6 +2,17 @@ type userType = "minor" | "major";
 
 type newType = { firstname: string; lastname: string; age: number };
 
+type extendedType = newType & { typeOfUser: string };
+
+function getType(user: extendedType): extendedType {
+  return {
+    age: 10,
+    firstname: "sasi",
+    lastname: "dharan",
+    typeOfUser: "dn",
+  };
+}
+
 type newMappedType = {
   name: string;
   age: number;
@@ -27,7 +38,7 @@ type newMappedType = {
 //   return newUser;
 // });
 
-let sasi;
+let sasi: string;
 
 const users: newType[] = [
   { firstname: "John", lastname: "Doe", age: 17 },
@@ -36,7 +47,9 @@ const users: newType[] = [
   { firstname: "Bob", lastname: "Brown", age: 30 },
 ];
 
-const mappedUsers: newMappedType[] = users.map((user) => {
+let userAgeGroup: userType;
+
+const mappedUsers = users.map((user): newMappedType => {
   const userType: userType = user.age < 18 ? "minor" : "major";
   return {
     name: `${user.firstname} ${user.lastname}`,
@@ -45,8 +58,11 @@ const mappedUsers: newMappedType[] = users.map((user) => {
   };
 });
 
-function getUserType(user: newMappedType): userType {
-  return user.userType;
+function getUserType(
+  { age, name, userType }: newMappedType,
+  b?: string,
+): userType {
+  return userType;
 }
 
 const firstUserType = getUserType(mappedUsers[0]);
